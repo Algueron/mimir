@@ -31,3 +31,15 @@ argocd admin initial-password -n argocd
 ````
 
 ## Installation
+
+### Setup Rook
+
+- Create Infrastructure project
+````bash
+kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/infrastructure-argo-project.yaml
+````
+
+- Create CertManager Application
+````bash
+kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/certmanager.yaml
+````
