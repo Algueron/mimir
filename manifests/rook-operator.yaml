@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rook-operator
+  namespace: argocd
+spec:
+  destination:
+    namespace: rook-ceph
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    chart: rook-ceph
+    helm:
+      parameters:
+        - name: enableDiscoveryDaemon
+          value: "true"
+    repoURL: https://charts.rook.io/release
+    targetRevision: v1.11.6
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
