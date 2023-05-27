@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rook-ceph-cluster
+  namespace: argocd
+spec:
+  destination:
+    namespace: rook-ceph
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    chart: rook-ceph-cluster
+    helm:
+      parameters:
+        - name: cephClusterSpec.storage.useAllDevices
+          value: "false"
+        - name: cephClusterSpec.storage.deviceFilter
+          value: vdb
+    repoURL: https://charts.rook.io/release
+    targetRevision: v1.11.6
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
