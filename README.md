@@ -38,8 +38,11 @@ argocd admin initial-password -n argocd
 ````bash
 kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/infrastructure-argo-project.yaml
 ````
-
 - Create CertManager Application
 ````bash
 kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/certmanager.yaml
+````
+- Create Rook Operator Application
+````bash
+kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/rook-operator.yaml
 ````
