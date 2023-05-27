@@ -50,3 +50,7 @@ kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests
 ````bash
 kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/ceph-cluster.yaml
 ````
+- Create Ceph Dashboard Application
+````bash
+kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/rook-ceph-dashboard.yaml
+````
