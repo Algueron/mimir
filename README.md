@@ -46,3 +46,7 @@ kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests
 ````bash
 kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/rook-operator.yaml
 ````
+- Create Ceph Cluster Application
+````bash
+kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/ceph-cluster.yaml
+````
