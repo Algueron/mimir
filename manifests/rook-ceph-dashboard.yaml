@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rook-ceph-dashboard
+  namespace: argocd
+spec:
+  destination:
+    namespace: rook-ceph
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    path: .
+    repoURL: https://github.com/Algueron/ceph-dashboard-service.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
