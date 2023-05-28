@@ -11,13 +11,9 @@ spec:
     server: https://kubernetes.default.svc
   project: infrastructure
   source:
-    chart: rook-ceph
-    helm:
-      parameters:
-        - name: enableDiscoveryDaemon
-          value: "true"
-    repoURL: https://charts.rook.io/release
-    targetRevision: v1.11.6
+    path: .
+    repoURL: https://github.com/Algueron/rook-operator.git
+    targetRevision: HEAD
   syncPolicy:
     automated: {}
     syncOptions:
