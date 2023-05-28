@@ -11,15 +11,9 @@ spec:
     server: https://kubernetes.default.svc
   project: infrastructure
   source:
-    chart: rook-ceph-cluster
-    helm:
-      parameters:
-        - name: cephClusterSpec.storage.useAllDevices
-          value: "false"
-        - name: cephClusterSpec.storage.deviceFilter
-          value: vdb
-    repoURL: https://charts.rook.io/release
-    targetRevision: v1.11.6
+    path: .
+    repoURL: https://github.com/Algueron/rook-ceph-cluster.git
+    targetRevision: HEAD
   syncPolicy:
     automated: {}
     syncOptions:
