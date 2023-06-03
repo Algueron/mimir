@@ -58,3 +58,10 @@ kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests
 ````bash
 kubectl -n rook-ceph get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode && echo
 ````
+
+### Storage configuration
+
+- Create Ceph Dashboard Application
+````bash
+kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/rook-ceph-block.yaml
+````
