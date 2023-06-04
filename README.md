@@ -61,7 +61,11 @@ kubectl -n rook-ceph get secret rook-ceph-dashboard-password -o jsonpath="{['dat
 
 ### Storage configuration
 
-- Create Ceph Dashboard Application
+- Create Ceph Block Storage Class
 ````bash
 kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/rook-ceph-block.yaml
+````
+- Create Ceph Object Storage Class
+````bash
+kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/rook-ceph-object.yaml
 ````
