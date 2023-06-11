@@ -36,36 +36,9 @@ argocd admin initial-password -n argocd
 
 - Create Infrastructure project
 ````bash
-kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/infrastructure-argo-project.yaml
+kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/infrastructure/infrastructure-argo-project.yaml
 ````
-- Create CertManager Application
+- Install and Configure Rook
 ````bash
-kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/certmanager.yaml
-````
-- Create Rook Operator Application
-````bash
-kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/rook-operator.yaml
-````
-- Create Ceph Cluster Application
-````bash
-kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/ceph-cluster.yaml
-````
-- Create Ceph Dashboard Application
-````bash
-kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/rook-ceph-dashboard.yaml
-````
-- Retrieve the admin password
-````bash
-kubectl -n rook-ceph get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode && echo
-````
-
-### Storage configuration
-
-- Create Ceph Block Storage Class
-````bash
-kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/rook-ceph-block.yaml
-````
-- Create Ceph Object Storage Class
-````bash
-kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/rook-ceph-object.yaml
+kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/infrastructure/rook-application.yaml
 ````
