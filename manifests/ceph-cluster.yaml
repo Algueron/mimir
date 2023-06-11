@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: infrastructure
   source:
-    path: .
+    path: cluster/
     repoURL: https://github.com/Algueron/rook-ceph-cluster.git
     targetRevision: HEAD
   syncPolicy:
