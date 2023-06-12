@@ -42,3 +42,7 @@ kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests
 ````bash
 kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/infrastructure/rook-application.yaml
 ````
+- Retrieve the admin password
+````bash
+kubectl -n rook-ceph get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode && echo
+````
