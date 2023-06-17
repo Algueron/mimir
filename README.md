@@ -32,17 +32,32 @@ argocd admin initial-password -n argocd
 
 ## Installation
 
-### Setup Rook
+### Setup Storage
+
+The storage application deploys the Rook Operator, creates a Ceph cluster and instantiates both block and object Storage class.
 
 - Create Infrastructure project
 ````bash
 kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/infrastructure/infrastructure-argo-project.yaml
 ````
-- Install and Configure Rook
+- Install and Configure Storage
 ````bash
 kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/infrastructure/rook-application.yaml
 ````
 - Retrieve the admin password
 ````bash
 kubectl -n rook-ceph get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode && echo
+````
+
+### Setup Monitoring
+
+The monitoring application deploys the Prometheus Operator.
+
+- Create Monitoring project
+````bash
+kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/monitoring/monitoring-application.yaml
+````
+- Install and Configure Monitoring
+````bash
+kubectl apply -f https://raw.githubusercontent.com/Algueron/mimir/main/manifests/monitoring/monitoring-argo-project.yaml
 ````
